@@ -1,0 +1,15 @@
+server:
+  port: 8993
+
+spring:
+
+  jpa:
+    hibernate:
+      # https://stackoverflow.com/questions/438146/what-are-the-possible-values-of-the-hibernate-hbm2ddl-auto-configuration-and-wha
+      ddl-auto: update
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+
