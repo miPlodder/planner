@@ -38,7 +38,7 @@ public class Busy {
 
     @Override
     public String toString() {
-        return "Busy{" +
+        return "{" +
                 "start=" + start +
                 ", end=" + end +
                 '}';

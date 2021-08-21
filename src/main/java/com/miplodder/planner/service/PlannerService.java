@@ -3,6 +3,7 @@ package com.miplodder.planner.service;
 import com.miplodder.planner.dao.UserTimingPreferences;
 import com.miplodder.planner.dto.Busy;
 import com.miplodder.planner.dto.Schedule;
+import com.miplodder.planner.dto.Slots;
 import com.miplodder.planner.repository.UserTimingPreferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +20,10 @@ public class PlannerService {
     @Autowired
     private UserTimingPreferenceRepository userTimingPreferenceRepository;
 
-    public String findCommonTimeToMeet(List<Long> users, int durationMins, int count, Schedule schedule) {
+    public Slots findCommonTimeToMeet(List<Long> users, int durationMins, int count, Schedule schedule) {
         if (users.size() != 2) {
-            return "Invalid userId count";
+            System.out.println("Invalid userId count");
+            return null;
         }
         List<UserTimingPreferences> userTimingPreferences1 = userTimingPreferenceRepository.findByUserId(users.get(0));
         List<Busy> busy1 = schedule.getUserId1().getCalendars().getPrimary().getBusy();
@@ -30,7 +32,8 @@ public class PlannerService {
         List<Busy> busy2 = schedule.getUserId2().getCalendars().getPrimary().getBusy();
 
         if (userTimingPreferences1.isEmpty() || userTimingPreferences2.isEmpty()) {
-            return "userId incorrect";
+            System.out.println("userId incorrect");
+            return null;
         }
         int[] dateStart1 = extractStartDate(busy1);
         int[] dateEnd1 = extractEndDate(busy1);
@@ -42,7 +45,8 @@ public class PlannerService {
         int[] timeEnd2 = extractTime(userTimingPreferences2.get(0).getDayEndTime());
 
         if (dateStart1 == null || dateStart2 == null) {
-            return "Problem cannot be solved, since date is unknown from input";
+            System.out.println("Problem cannot be solved, since date is unknown from input");
+            return null;
         }
 
         ZoneId zone1 = ZoneId.of(userTimingPreferences1.get(0).getTimezone());
@@ -96,9 +100,8 @@ public class PlannerService {
             }
             if (counter == count)
                 break;
-
         }
-        return busy3.toString();
+        return new Slots(busy3);
     }
 
     private boolean isOverlappingTime(OffsetDateTime s1, OffsetDateTime e1, OffsetDateTime s2, OffsetDateTime e2) {
