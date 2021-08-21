@@ -5,6 +5,7 @@ public class UserTimingPreference {
     private String dayStartTime;
     private String dayEndTime;
     private String timeZone;
+    private long userId;
 
     public String getDayStartTime() {
         return dayStartTime;
@@ -28,5 +29,13 @@ public class UserTimingPreference {
 
     public void setTimeZone(String timeZone) {
         this.timeZone = timeZone;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 }

@@ -12,10 +12,11 @@ public class UserTimingPreferences {
 
     }
 
-    public UserTimingPreferences(String dayStartTime, String dayEndTime, String timezone) {
+    public UserTimingPreferences(String dayStartTime, String dayEndTime, String timezone, long userId) {
         this.dayStartTime = dayStartTime;
         this.dayEndTime = dayEndTime;
         this.timezone = timezone;
+        this.userId = userId;
     }
 
     @Id
@@ -24,6 +25,7 @@ public class UserTimingPreferences {
     private String dayStartTime;
     private String dayEndTime;
     private String timezone;
+    private long userId;
 
     public long getPreferenceId() {
         return preferenceId;
@@ -57,13 +59,22 @@ public class UserTimingPreferences {
         this.timezone = timezone;
     }
 
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
-        return "{" +
+        return "UserTimingPreferences{" +
                 "preferenceId=" + preferenceId +
                 ", dayStartTime='" + dayStartTime + '\'' +
                 ", dayEndTime='" + dayEndTime + '\'' +
                 ", timezone='" + timezone + '\'' +
+                ", userId=" + userId +
                 '}';
     }
 }

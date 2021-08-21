@@ -17,18 +17,18 @@ public class UserTimingPreferenceCRUDController {
         return userTimingPreferenceCRUDService.create(userTimingPreference);
     }
 
-    @GetMapping("/{userId}")
-    public String read(@PathVariable long userId) {
-        return userTimingPreferenceCRUDService.read(userId);
+    @GetMapping("/{userTimingPreferenceId}")
+    public String read(@PathVariable long userTimingPreferenceId) {
+        return userTimingPreferenceCRUDService.read(userTimingPreferenceId);
     }
 
-    @PutMapping("/{userId}")
-    public String update(@PathVariable long userId, @RequestBody UserTimingPreference requestPayload) {
-        return userTimingPreferenceCRUDService.update(userId, requestPayload);
+    @PutMapping("/{userTimingPreferenceId}")
+    public String update(@PathVariable long userTimingPreferenceId, @RequestBody UserTimingPreference requestPayload) {
+        return userTimingPreferenceCRUDService.update(userTimingPreferenceId, requestPayload);
     }
 
-    @DeleteMapping("/{userId}")
-    public String delete(@PathVariable long userId) {
-        return userTimingPreferenceCRUDService.delete(userId);
+    @DeleteMapping("/{userTimingPreferenceId}")
+    public String delete(@PathVariable long userTimingPreferenceId) {
+        return userTimingPreferenceCRUDService.delete(userTimingPreferenceId);
     }
 }

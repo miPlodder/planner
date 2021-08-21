@@ -16,7 +16,7 @@ public class UserTimingPreferenceCRUDService {
     private UserTimingPreferenceRepository userTimingPreferenceRepository;
 
     public String create(UserTimingPreference userTimingPreference) {
-        userTimingPreferenceRepository.save(new UserTimingPreferences(userTimingPreference.getDayStartTime(), userTimingPreference.getDayEndTime(), userTimingPreference.getTimeZone()));
+        userTimingPreferenceRepository.save(new UserTimingPreferences(userTimingPreference.getDayStartTime(), userTimingPreference.getDayEndTime(), userTimingPreference.getTimeZone(), userTimingPreference.getUserId()));
         return "UserTimingPreference Created";
     }
 
@@ -35,6 +35,7 @@ public class UserTimingPreferenceCRUDService {
             usersTimingPreferences.setDayStartTime(requestPayload.getDayStartTime());
             usersTimingPreferences.setDayEndTime(requestPayload.getDayEndTime());
             usersTimingPreferences.setTimezone(requestPayload.getTimeZone());
+            usersTimingPreferences.setUserId(requestPayload.getUserId());
             userTimingPreferenceRepository.save(usersTimingPreferences);
             return "UserTimingPreference updated";
         }
