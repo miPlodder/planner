@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
 
-  postgresql:
+  db:
     image: "postgres:13.4-alpine"
     container_name: "postgres-container"
     ports:
@@ -18,9 +18,9 @@ services:
     ports:
       - 8993:8994
     environment:
-      - DB_SERVER=jdbc:postgresql://postgresql:5432/postgres
+      - DB_SERVER=jdbc:postgresql://db:5432/postgres
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     links:
-      - postgresql
+      - db
