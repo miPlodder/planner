@@ -18,7 +18,7 @@ services:
     ports:
       - 8993:8994
     environment:
-      - DB_SERVER=postgresql
+      - DB_SERVER=db:5432
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
