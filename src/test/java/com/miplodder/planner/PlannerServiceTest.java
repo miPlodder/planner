@@ -3,23 +3,18 @@ package com.miplodder.planner;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.miplodder.planner.dto.Schedule;
 import com.miplodder.planner.dto.Slots;
-import com.miplodder.planner.repository.UserTimingPreferenceRepository;
 import com.miplodder.planner.service.PlannerService;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringBootTest
 class PlannerServiceTest {
