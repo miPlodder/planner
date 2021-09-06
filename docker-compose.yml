@@ -10,7 +10,7 @@ services:
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgre
+      - POSTGRES_PASSWORD=postgres
 
   planner-service:
     build: .
@@ -18,7 +18,7 @@ services:
     ports:
       - 8993:8994
     environment:
-      - DB_SERVER=db:5432
+      - DB_SERVER=jdbc:postgresql://postgresql:5432/postgres
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
