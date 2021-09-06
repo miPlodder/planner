@@ -18,3 +18,6 @@ Spring Boot backend for planning meetings.
 `docker build -f Dockerfile -t image-planner .` -- building the Dockerfile and generating an image
 `docker run -p 8993:8994 image-planner` -- run the docker image on port number 8993 inside container, and port number 8994 on host machine
 
+- Docker compose commands for setup
+`docker-compose up` -- run up the docker compose images
+`docker-compose down` -- run down the docker compose images
