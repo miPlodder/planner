@@ -16,7 +16,7 @@ services:
     build: .
     container_name: planner
     ports:
-      - 8993:8994
+      - 8993:8993
     environment:
       - DB_SERVER=jdbc:postgresql://db:5432/postgres
       - POSTGRES_DB=postgres
