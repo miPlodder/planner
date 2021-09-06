@@ -17,7 +17,7 @@ services:
     container_name: planner
     ports:
       - 8993:8994
-    env:
+    environment:
       - DB_SERVER=postgresql
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
