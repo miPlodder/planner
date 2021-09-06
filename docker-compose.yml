@@ -9,7 +9,7 @@ services:
       - 5432:5432
 
   planner-service:
-    build: ./planner
+    build: .
     container_name: planner
     ports:
       - 8993:8994
